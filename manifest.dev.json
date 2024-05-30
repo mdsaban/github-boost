@@ -1,0 +1,14 @@
+{
+  "action": {
+    "default_icon": "public/icon32.png"
+  },
+  "icons": {
+    "128": "public/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["contentStyle.css", "icon128.png", "icon32.png"],
+      "matches": []
+    }
+  ]
+}
