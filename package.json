@@ -1,11 +1,11 @@
 {
   "name": "vite-web-extension",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "A simple chrome extension template with Vite, React, TypeScript and Tailwind CSS.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnBra/web-extension.git"
+    "url": "https://github.com/mdsaban/github-boost.git"
   },
   "scripts": {
     "build": "vite build",
