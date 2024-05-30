@@ -2,7 +2,7 @@
 
 ![Github boost](screenshot.png)
 
-[**Read Docs**](!https://mdsaban.com/packages/github-boost)
+[**Read Docs**](https://mdsaban.com/packages/github-boost)
 
 ## Features
 
