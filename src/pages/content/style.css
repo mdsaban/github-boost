@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.blob-code-hunk {
-  border-width: 0 !important;
+#__root {
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 }
