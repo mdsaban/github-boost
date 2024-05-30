@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { useEffect, useState } from 'react'
 
 import Header from './Header'
+import Footer from './Footer'
 import Empty from './Empty'
 
 import './style.css'
@@ -22,7 +23,7 @@ import {
 const rootContainer = document.querySelector('#__root')
 if (!rootContainer) throw new Error("Can't find Content root element")
 const root = createRoot(rootContainer)
-const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+// const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 const toggleDimFiles = (isChecked) => {
   if (isChecked) dimFiles()
@@ -57,11 +58,6 @@ var observer = new MutationObserver(function (mutations) {
     }
   })
 })
-
-const dynamicClass = () => {
-  if (isDark) return 'bg-gradient-to-t from-[#191d23] to-[#0d1117] !text-white'
-  return 'bg-white !text-black'
-}
 
 const App = () => {
   const [isOptionPanelClosed, setIsOptionPanelClosed] = useState(false)
@@ -160,11 +156,10 @@ const App = () => {
   if (!isPRPage) {
     return (
       <div className={`${isOptionPanelClosed ? 'hidden' : 'block'}`}>
-        <div
-          className={`max-h-[calc(100%-40px)] w-96 ${dynamicClass()} fixed right-4 top-5 z-[1000000] rounded-lg shadow p-3 border-[0.5px] border-gray-800`}
-        >
+        <div className='max-h-[calc(100%-40px)] w-96 bg-gradient-to-t from-[#191d23] to-[#0d1117] !text-white fixed right-4 top-5 z-[1000000] rounded-lg shadow-xl p-3 border-[0.5px] border-gray-800'>
           <Header closePanel={closePanel} />
           <Empty />
+          <Footer />
         </div>
       </div>
     )
@@ -172,16 +167,14 @@ const App = () => {
 
   return (
     <div className={`${isOptionPanelClosed ? 'hidden' : 'block'}`}>
-      <div
-        className={`max-h-[calc(100%-40px)] w-96 ${dynamicClass()} fixed right-4 top-5 z-[1000000] rounded-lg shadow p-3 border-[0.5px] border-gray-800`}
-      >
+      <div className='max-h-[calc(100%-40px)] w-96 bg-gradient-to-t from-[#191d23] to-[#0d1117] !text-white fixed right-4 top-5 z-[1000000] rounded-lg shadow-xl p-3 border-[0.5px] border-gray-800'>
         <Header closePanel={closePanel} />
 
         <div className='flex items-center my-2'>
           <input
             id='dimFiles'
             type='checkbox'
-            className='cursor-pointer'
+            className='cursor-pointer w-4 h-4'
             onChange={handleToggleDimFiles}
             checked={isDimFilesChecked}
           />
@@ -189,13 +182,13 @@ const App = () => {
             Dim viewed files
           </label>
         </div>
-        <hr />
+        <hr className='bg-white opacity-20' />
 
         <div className='flex items-center my-2'>
           <input
             id='customLines'
             type='checkbox'
-            className='cursor-pointer'
+            className='cursor-pointer w-4 h-4'
             onChange={handleToggleCustomLine}
             checked={isCustomLinesChecked}
           />
@@ -203,9 +196,9 @@ const App = () => {
             Show remaining line of codes to review
           </label>
         </div>
-        <hr />
+        <hr className='bg-white opacity-20' />
 
-        <div className='text-sm font-normal text-gray-500 mt-4'>
+        <div className='text-sm font-normal text-gray-500 mt-2'>
           <div className='text-white mb-1'>
             Auto View files
             <span className='opacity-60'> (write regex for files or directories) </span>
@@ -214,18 +207,18 @@ const App = () => {
             value={regexPattern}
             id='regexArea'
             rows='3'
-            className='w-full p-2 rounded mb-2 bg-black text-white break-all'
+            className='w-full p-2 rounded mb-2 bg-black break-all tracking-wider text-white leading-relaxed	'
             onChange={(e) => setRegexPattern(e.target.value)}
           ></textarea>
           <div className='flex gap-2 mb-2 items-center'>
             <button
-              className='py-1 px-3 rounded bg-gray-100 text-black'
+              className='py-2 px-3 rounded bg-[#2e343f] text-white'
               onClick={() => applyRegex('view')}
             >
               Mark Viewed
             </button>
             <button
-              className='py-1 px-3 rounded bg-gray-100 text-black'
+              className='py-2 px-3 rounded bg-[#2e343f] text-white'
               onClick={() => applyRegex('unview')}
             >
               Mark Unviewed
@@ -237,23 +230,27 @@ const App = () => {
             ''
           )}
         </div>
-        <hr />
+        <hr className='bg-white opacity-20' />
 
-        <div className='text-sm font-normal text-gray-500 mt-4'>
-          <div className='text-white mb-1'>Collapse/Uncollapse all files</div>
+        <div className='text-sm font-normal text-gray-500 mt-2'>
+          <div className='text-white mb-2'>Collapse/Uncollapse all files</div>
           <div className='flex gap-2 items-center'>
-            <button className='py-1 px-3 rounded bg-gray-100 text-black' onClick={collapseAllFiles}>
+            <button
+              className='py-2 px-3 rounded bg-[#2e343f] text-white'
+              onClick={collapseAllFiles}
+            >
               Collapse
             </button>
             <button
-              className='py-1 px-3 rounded bg-gray-100 text-black'
+              className='py-2 px-3 rounded bg-[#2e343f] text-white'
               onClick={uncollapseAllFiles}
             >
               Uncollapse
             </button>
           </div>
         </div>
-        <hr />
+        <hr className='bg-white opacity-20' />
+        <Footer />
       </div>
     </div>
   )

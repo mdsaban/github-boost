@@ -1,7 +1,7 @@
 const Header = ({ closePanel }) => {
   return (
     <>
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center mb-4'>
         <div className='text-lg font-semibold'>Github boost </div>
         <div>
           <svg
@@ -17,9 +17,9 @@ const Header = ({ closePanel }) => {
           </svg>
         </div>
       </div>
-      <div className='text-sm font-normal text-gray-500 mb-4 pr-6'>
-        Boost your github DX to review PRs, for any questions or help please raise issue here
-      </div>
+      {/* <div className='text-sm font-normal text-gray-500 mb-4 pr-6'>
+        Enhance your GitHub developer experience when reviewing PRs
+      </div> */}
     </>
   )
 }
