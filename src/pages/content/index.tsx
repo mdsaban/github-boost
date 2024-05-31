@@ -51,9 +51,10 @@ const initExtension = () => {
 }
 
 var observer = new MutationObserver(function (mutations) {
-  mutations.forEach(function (mutation) {
+  mutations.forEach(async function (mutation) {
     if (mutation.type === 'attributes' && mutation.attributeName === 'data-file-user-viewed') {
-      toggleDimFiles(getStorage('dimFiles'))
+      const dimFiles = await getStorage('dimFiles')
+      toggleDimFiles(dimFiles)
       if (document.querySelector('#customLines')?.checked) addCustomLineChange()
     }
   })
@@ -249,7 +250,7 @@ const App = () => {
             </button>
           </div>
         </div>
-        <hr className='bg-white opacity-20' />
+        <hr className='bg-white opacity-20 my-2' />
         <Footer />
       </div>
     </div>
