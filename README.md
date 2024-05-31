@@ -1,8 +1,7 @@
 # Github Boost
+📁 [**Read Docs**](https://mdsaban.com/packages/github-boost) | 🔗 [**Install extension**](https://chromewebstore.google.com/detail/github-boost/ikdkmmfggehlkilbeddlhkjpbangjhii?hl=en&authuser=0)
 
 ![Github boost](screenshot.png)
-
-[**Read Docs**](https://mdsaban.com/packages/github-boost)
 
 ## Features
 
