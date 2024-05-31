@@ -98,10 +98,10 @@ const App = () => {
 
   const init = async () => {
     const isOptionPanelClosed = await getStorage('isOptionPanelClosed')
-    const regexPattern = await getStorage('regexPattern')
+    const savedRegex = await getStorage('regexPattern')
     const dimFiles = await getStorage('dimFiles')
     const customLines = await getStorage('customLines')
-    setRegexPattern(regexPattern)
+    setRegexPattern(!!savedRegex ? savedRegex : regexPattern)
     setIsDimFilesChecked(dimFiles)
     setIsCustomLinesChecked(customLines)
     if (isOptionPanelClosed === false) return
